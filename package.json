@@ -1,12 +1,12 @@
 {
   "name": "generator-gulp-angular-subtask",
   "version": "0.0.0",
-  "description": "Yeoman generator",
+  "description": "A help generator for gulp-angular to create sub tasks like controllers and directives",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "doronsever/generator-gulp-angular-subtask",
   "author": {
-    "name": "",
+    "name": "Doron",
     "email": "",
     "url": "https://github.com/doronsever"
   },
