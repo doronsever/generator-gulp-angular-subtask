@@ -1,4 +1,4 @@
-# generator-gulp-angular-subtask [![Build Status](https://secure.travis-ci.org/doronsever/generator-gulp-angular-subtask.png?branch=master)](https://travis-ci.org/doronsever/generator-gulp-angular-subtask)
+# generator-gulp-angular-subtask
 
 > A helper generator for [gulp-angular](https://github.com/Swiip/generator-gulp-angular) generator
 
