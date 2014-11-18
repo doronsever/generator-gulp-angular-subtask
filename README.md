@@ -41,6 +41,37 @@ yo gulp-angular-subtask:controller --help
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
 
+## Examples
+
+* To Create a controller <br />
+  ```
+  yo gulp-angular-subtask:controller user
+  ```<br /><br />
+  Produces <br />
+> src/app/user/controllers/user-controller.js
+
+* Creating a controller under the components library <br />
+  ```
+  yo gulp-angular-subtask:controller navbar --component
+  ``` <br /><br />
+  Produces 
+>src/components/navbar/controllers/navbar-controller.js
+
+* Creating a controller under user specific library <br />
+  ```
+  yo gulp-angular-subtask:controller user --dest="specific/location"
+  ``` <br /><br />
+  Produces 
+>src/specific/location/controllers/navbar-controller.js
+
+* Creating a coffee script controller <br />
+  ```
+  yo gulp-angular-subtask:controller user --coffee
+  ``` <br /><br />
+  Produces 
+>src/app/user/controllers/user-controller.coffee
+
+
 ## License
 
 MIT

@@ -13,7 +13,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
       required: 'false'
     }); // This method adds support for a `--dest` flag
     this.option('component', {
-      desc: 'Set the destination to be under the component library'
+      desc: 'Set the destination to be under the component library',
     }); // This method adds support for a `--component` flag
     this.option('coffee', {
       desc: 'Generate CoffeeScript instead of JavaScript'
