@@ -43,31 +43,39 @@ Please note that for the time been, gulp-angular does not support coffescript. I
 
 ## Examples
 
-* To Create a controller <br />
+* To Create a controller 
+
   ```
   yo gulp-angular-subtask:controller user
-  ```<br /><br />
-  Produces <br />
+  ```
+  
+  Produces 
 > src/app/user/controllers/user-controller.js
 
-* Creating a controller under the components library <br />
+* Creating a controller under the components library
+
   ```
   yo gulp-angular-subtask:controller navbar --component
-  ``` <br /><br />
+  ```
+  
   Produces 
 >src/components/navbar/controllers/navbar-controller.js
 
-* Creating a controller under user specific library <br />
+* Creating a controller under user specific library 
+
   ```
   yo gulp-angular-subtask:controller user --dest="specific/location"
-  ``` <br /><br />
+  ``` 
+  
   Produces 
 >src/specific/location/controllers/navbar-controller.js
 
-* Creating a coffee script controller <br />
+* Creating a coffee script controller 
+  
   ```
   yo gulp-angular-subtask:controller user --coffee
-  ``` <br /><br />
+  ```
+  
   Produces 
 >src/app/user/controllers/user-controller.coffee
 
