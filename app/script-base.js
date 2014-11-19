@@ -1,5 +1,6 @@
-var generators = require('yeoman-generator');
-var angularUtils = require('./utils.js');
+var generators = require('yeoman-generator'),
+    angularUtils = require('./utils.js'),
+    camelCase = require('camelcase');
 
 var MyBase = module.exports = generators.NamedBase.extend({
 
@@ -33,7 +34,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
         testDest = 'test/unit/' + options['type'] + 's/' + taskType,
         templateData = {
           scriptAppName: this.appname,
-          scriptClassName: this.name
+          scriptClassName: camelCase(this.name)
         },
         fullPath = 'src/index.html';
 

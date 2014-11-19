@@ -14,20 +14,21 @@ npm install -g generator-gulp-angular-subtask
 
 ### Why should i use it?
 
-For the time been, this great generator does not support sub tasks like controllers and directives. <br>
-So i built a helper generator that creates those tasks for me and thuoght about sharing.
+For the time been, the great [gulp-angular](https://github.com/Swiip/generator-gulp-angular) generator does not support sub tasks like controllers and directives. <br>
+So i decided to build a helper generator that creates those tasks for me and thought about sharing it.
 
 This project will be deprecated when the team decide to support this issue. 
 
 ### Usage:
 
-Currently i support these sub tasks: 
+I currently support these sub tasks: 
 
   * controller
+  * directive
   
 ### options
 
-To see the options you can always use the help opton on a task
+To see the options you can always use the help option on a task
 
 ```
 yo gulp-angular-subtask:controller --help
@@ -79,6 +80,7 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/app/user/controllers/user-controller.coffee
 
+**This will work the same with the directive subtask also**
 
 ## License
 
