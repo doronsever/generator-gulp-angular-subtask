@@ -22,7 +22,7 @@
     "directive"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", "angular gulp"
   ],
   "dependencies": {
     "camelcase": "^1.0.1",
