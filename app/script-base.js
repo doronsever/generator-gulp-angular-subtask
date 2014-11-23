@@ -1,6 +1,7 @@
 var generators = require('yeoman-generator'),
     angularUtils = require('./utils.js'),
-    camelCase = require('camelcase');
+    camelCase = require('camelcase'),
+    fs = require('fs');
 
 var MyBase = module.exports = generators.NamedBase.extend({
 
@@ -14,7 +15,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
       required: 'false'
     }); // This method adds support for a `--dest` flag
     this.option('component', {
-      desc: 'Set the destination to be under the component library',
+      desc: 'Set the destination to be under the component library'
     }); // This method adds support for a `--component` flag
     this.option('coffee', {
       desc: 'Generate CoffeeScript instead of JavaScript'
@@ -41,8 +42,8 @@ var MyBase = module.exports = generators.NamedBase.extend({
     if (typeof this.options['dest'] !== 'undefined') {
       templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
     }
-    this.template(templateSrc, 'src/' + templateDest, templateData);
-    this.template(testSrc,  testDest, templateData);
+    this.template(templateSrc, 'src/' + templateDest, templateData); // Create file
+    this.template(testSrc,  testDest, templateData); // Create test
 
     angularUtils.rewriteFile({
       file: fullPath,
@@ -51,6 +52,17 @@ var MyBase = module.exports = generators.NamedBase.extend({
         '<script src="' + indexDest + '"></script>'
       ]
     });
+  },
+  _addStyles: function() {
+    var fileType = this.options['style-type'],
+        taskType = this.name + '.' + fileType,
+        destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
+        templateSrc = 'style.' + fileType,
+        templateDest = destType + '/' + this.name + '/styles/' + taskType;
+    if (typeof this.options['dest'] !== 'undefined') {
+      templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
+    }
+    this.template(templateSrc, 'src/' + templateDest); // Create file
   },
   // Prepare the destination string so we can control it.
   _prepareDestination: function(dest) {

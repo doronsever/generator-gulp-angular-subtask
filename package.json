@@ -19,10 +19,12 @@
   "files": [
     "app",
     "controller",
-    "directive"
+    "directive",
+    "styles"
   ],
   "keywords": [
-    "yeoman-generator", "angular gulp"
+    "yeoman-generator",
+    "angular gulp"
   ],
   "dependencies": {
     "camelcase": "^1.0.1",
