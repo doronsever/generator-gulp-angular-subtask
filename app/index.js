@@ -21,7 +21,8 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
     this.log(
       chalk.black.bgWhite('You can use this generator with these commands:') + '\n' +
       chalk.green('yo gulp-angular-subtask:controller Thing') + '\n' +
-      chalk.green('yo gulp-angular-subtask:directive Thing')
+      chalk.green('yo gulp-angular-subtask:directive Thing') + '\n' +
+      chalk.green('yo gulp-angular-subtask:styles Thing')
     );
   }
 });
