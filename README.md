@@ -12,6 +12,17 @@
 npm install -g generator-gulp-angular-subtask
 ```
 
+### To enable styles generation support
+
+add `<!-- endstyles -->` in your index.html file after this line: `<link rel="stylesheet" href="app/index.css">`
+
+The result should look like this:
+>     <!-- build:css({.tmp,src}) styles/app.css -->
+    <link rel="stylesheet" href="app/index.css">
+    <!-- endstyles -->
+    <!-- endbuild -->
+ 
+
 ### Why should i use it?
 
 For the time been, the great [gulp-angular](https://github.com/Swiip/generator-gulp-angular) generator does not support sub tasks like controllers and directives. <br>
@@ -25,20 +36,22 @@ I currently support these sub tasks:
 
   * controller
   * directive
+  * styles (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   
 ### options
 
 To see the options you can always use the help option on a task
 
 ```
-yo gulp-angular-subtask:controller --help
+yo gulp-angular-subtask:[SUBTASK] --help
 ```
 
 **These are the options available**
 
   * --dest : Set a destination where to save the file
   * --component : Set the destination to be under the component library
-  * --coffee : Generate coffeescript template instead of regular javascript
+  * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
+  * --style-type : Generate a style file based on a type {scss, sass, less, styl} [styles]
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
 
@@ -71,14 +84,32 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/specific/location/controllers/navbar-controller.js
 
-* Creating a coffee script controller 
+* Creating a coffee script directive 
   
   ```
-  yo gulp-angular-subtask:controller user --coffee
+  yo gulp-angular-subtask:directive user --coffee
   ```
   
   Produces 
->src/app/user/controllers/user-controller.coffee
+>src/app/user/directives/user-directive.coffee
+
+* Creating a css file 
+  
+  ```
+  yo gulp-angular-subtask:styles user
+  ```
+  
+  Produces 
+>src/app/user/styles/user.css
+
+* Creating a scss style 
+  
+  ```
+  yo gulp-angular-subtask:styles user --style-type="scss"
+  ```
+  
+  Produces 
+>src/app/user/styles/user.scss
 
 **This will work the same with the directive subtask also**
 

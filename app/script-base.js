@@ -17,9 +17,6 @@ var MyBase = module.exports = generators.NamedBase.extend({
     this.option('component', {
       desc: 'Set the destination to be under the component library'
     }); // This method adds support for a `--component` flag
-    this.option('coffee', {
-      desc: 'Generate CoffeeScript instead of JavaScript'
-    }); // This method adds support for a `--coffee` flag
   },
   // Copy the right template based on the type
   appTemplate: function(options) {
