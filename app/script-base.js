@@ -53,16 +53,30 @@ var MyBase = module.exports = generators.NamedBase.extend({
       ]
     });
   },
+  // Add styles
   _addStyles: function() {
     var fileType = this.options['style-type'],
         taskType = this.name + '.' + fileType,
         destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
         templateSrc = 'style.' + fileType,
-        templateDest = destType + '/' + this.name + '/styles/' + taskType;
+        templateDest = destType + '/' + this.name + '/styles/' + taskType,
+        indexDest = destType + '/' + this.name + '/styles/' + this.name + '.css',
+        fullPath = 'src/index.html';
+
     if (typeof this.options['dest'] !== 'undefined') {
       templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
+      indexDest = this._prepareDestination(this.options['dest']) + '/' + this.name + '.css';
     }
     this.template(templateSrc, 'src/' + templateDest); // Create file
+
+    angularUtils.rewriteFile({
+      file: fullPath,
+      needle: ' <!-- endstyles -->',
+      splicable: [
+        '<link rel="stylesheet" href="' + indexDest + '">'
+      ]
+    });
+
   },
   // Prepare the destination string so we can control it.
   _prepareDestination: function(dest) {
