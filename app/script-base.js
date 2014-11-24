@@ -73,6 +73,20 @@ var MyBase = module.exports = generators.NamedBase.extend({
         '<link rel="stylesheet" href="' + indexDest + '">'
       ]
     });
+  },
+  // Adds partials
+  _addPartials: function() {
+    var fileType = (typeof this.options['jade'] !== 'undefined') ? 'jade' : 'html',
+        taskType = this.name + '.' + fileType,
+        destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
+        templateDest = destType + '/' + this.name + '/partials/' + taskType,
+        templateSrc = 'partial.' + fileType;
+
+    if (typeof this.options['dest'] !== 'undefined') {
+      templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
+    }
+    this.template(templateSrc, 'src/' + templateDest); // Create file
+
 
   },
   // Prepare the destination string so we can control it.
