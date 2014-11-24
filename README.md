@@ -37,6 +37,7 @@ I currently support these sub tasks:
   * controller
   * directive
   * styles (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
+  * partial
   
 ### options
 
@@ -52,6 +53,7 @@ yo gulp-angular-subtask:[SUBTASK] --help
   * --component : Set the destination to be under the component library
   * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
   * --style-type : Generate a style file based on a type {scss, sass, less, styl} [styles]
+  * --jade : Generate a jade partial [partial]
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
 
@@ -84,7 +86,7 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/specific/location/controllers/navbar-controller.js
 
-* Creating a coffee script directive 
+* Creating a coffee script directive
   
   ```
   yo gulp-angular-subtask:directive user --coffee
@@ -110,6 +112,15 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   
   Produces 
 >src/app/user/styles/user.scss
+
+* Creating a partial 
+  
+  ```
+  yo gulp-angular-subtask:partial user
+  ```
+  
+  Produces 
+>src/app/user/partials/user.html
 
 **This will work the same with the directive subtask also**
 
