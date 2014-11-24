@@ -13,3 +13,4 @@ angular.module('<%= scriptAppName %>')
       'AngularJS'
       'Karma'
     ]
+    $scope
