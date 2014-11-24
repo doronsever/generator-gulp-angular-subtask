@@ -19,7 +19,7 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
     ));
 
     this.log(
-      chalk.black.bgWhite('You can use each generator subtask\'s options typing:') + '\n' +
+      chalk.black.bgWhite('You can see each generator subtask\'s options typing:') + '\n' +
       chalk.green('yo gulp-angular-subtask:controller --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:directive --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:styles --help') + '\n' +
