@@ -12,7 +12,7 @@
 npm install -g generator-gulp-angular-subtask
 ```
 
-### To enable styles generation support
+### To enable style generation support
 
 add `<!-- endstyles -->` in your index.html file after this line: `<link rel="stylesheet" href="app/index.css">`
 
@@ -36,7 +36,7 @@ I currently support these sub tasks:
 
   * controller
   * directive
-  * styles (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
+  * style (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   * partial
   
 ### options
@@ -52,7 +52,7 @@ yo gulp-angular-subtask:[SUBTASK] --help
   * --dest : Set a destination where to save the file
   * --component : Set the destination to be under the component library
   * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
-  * --style-type : Generate a style file based on a type {scss, sass, less, styl} [styles]
+  * --style-type : Generate a style file based on a type {scss, sass, less, styl} [style]
   * --jade : Generate a jade partial [partial]
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
@@ -98,7 +98,7 @@ Please note that for the time been, gulp-angular does not support coffescript. I
 * Creating a css file 
   
   ```
-  yo gulp-angular-subtask:styles user
+  yo gulp-angular-subtask:style user
   ```
   
   Produces 
@@ -107,7 +107,7 @@ Please note that for the time been, gulp-angular does not support coffescript. I
 * Creating a scss style 
   
   ```
-  yo gulp-angular-subtask:styles user --style-type="scss"
+  yo gulp-angular-subtask:style user --style-type="scss"
   ```
   
   Produces 

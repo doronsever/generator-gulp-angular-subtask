@@ -50,7 +50,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
       ]
     });
   },
-  // Add styles
+    // Add styles
   _addStyles: function() {
     var fileType = this.options['style-type'],
         taskType = this.name + '.' + fileType,
