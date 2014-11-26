@@ -83,7 +83,6 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     return templateDest;
   },
-
   // Prepare the destination string so we can control it.
   _prepareDestination: function(dest) {
     if (dest.charAt(dest.length - 1) == '/') {
