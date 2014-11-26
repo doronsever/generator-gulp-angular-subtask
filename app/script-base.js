@@ -22,73 +22,68 @@ var MyBase = module.exports = generators.NamedBase.extend({
   appTemplate: function(options) {
 
     var fileType = (typeof this.options['coffee'] !== 'undefined') ? 'coffee' : 'js',
-        templateType = (typeof this.options['coffee'] !== 'undefined') ? 'coffee' : 'javascript',
-        taskType = this.name + '-' + options['type'] + '.' + fileType,
-        destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
-        templateDest = destType + '/' + this.name + '/' + options['type'] + 's/' + taskType,
-        indexDest = destType + '/' + this.name + '/' + options['type'] + 's/' + this.name + '-' + options['type'] + '.js',
-        templateSrc = templateType + '/' + options['type'] + '.' + fileType,
-        testSrc = templateType + '/spec/' + options['type'] + '.' + fileType,
-        testDest = 'test/unit/' + options['type'] + 's/' + taskType,
-        templateData = {
-          scriptAppName: this.appname,
-          scriptClassName: camelCase(this.name)
-        },
-        fullPath = 'src/index.html';
+      templateSrc = fileType + '/' + options['type'] + '.' + fileType,
+      testSrc = fileType + '/spec/' + options['type'] + '.' + fileType,
+      testDest = 'test/unit/' + options['type'] + 's/' + this.name + '-' + options['type'] + '.' + fileType,
+      templateData = {
+        scriptAppName: this.appname,
+        scriptClassName: camelCase(this.name)
+      },
+      fullPath = 'src/index.html',
+      templateDest = this._makeDestination(options['type']), // Create the destination path
+      typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
 
-    if (typeof this.options['dest'] !== 'undefined') {
-      templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
-    }
-    this.template(templateSrc, 'src/' + templateDest, templateData); // Create file
+    this.template(templateSrc, typedTemplateDest, templateData); // Create file
     this.template(testSrc,  testDest, templateData); // Create test
 
     angularUtils.rewriteFile({
       file: fullPath,
       needle: ' <!-- inject:partials -->',
       splicable: [
-        '<script src="' + indexDest + '"></script>'
+        '<script src="' + templateDest + '.js"></script>'
       ]
     });
   },
-    // Add styles
+  // Add styles
   _addStyles: function() {
     var fileType = this.options['style-type'],
-        taskType = this.name + '.' + fileType,
-        destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
-        templateSrc = 'style.' + fileType,
-        templateDest = destType + '/' + this.name + '/styles/' + taskType,
-        indexDest = destType + '/' + this.name + '/styles/' + this.name + '.css',
-        fullPath = 'src/index.html';
+      templateSrc = 'style.' + fileType,
+      fullPath = 'src/index.html',
+      templateDest = this._makeDestination('style'), // Create the destination path
+      typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
 
-    if (typeof this.options['dest'] !== 'undefined') {
-      templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
-      indexDest = this._prepareDestination(this.options['dest']) + '/' + this.name + '.css';
-    }
-    this.template(templateSrc, 'src/' + templateDest); // Create file
+    this.template(templateSrc, typedTemplateDest); // Create file
 
     angularUtils.rewriteFile({
       file: fullPath,
       needle: ' <!-- endstyles -->',
       splicable: [
-        '<link rel="stylesheet" href="' + indexDest + '">'
+        '<link rel="stylesheet" href="' + templateDest + '.css">'
       ]
     });
   },
   // Adds partials
   _addPartials: function() {
     var fileType = (typeof this.options['jade'] !== 'undefined') ? 'jade' : 'html',
-        taskType = this.name + '.' + fileType,
-        destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
-        templateDest = destType + '/' + this.name + '/partials/' + taskType,
-        templateSrc = 'partial.' + fileType;
+      templateDest = this._makeDestination('partial'), // Create the destination path
+      templateSrc = 'partial.' + fileType,
+      typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
+
+    this.template(templateSrc, typedTemplateDest); // Create file
+   },
+  // Create the file path to copy the template to and to insert in the index.html file
+  _makeDestination: function(taskType) {
+    var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
+      filename = this.name + '-' + taskType,
+      templateDest = destType + '/' + this.name + '/' + taskType + 's/' + filename;
 
     if (typeof this.options['dest'] !== 'undefined') {
-      templateDest = this._prepareDestination(this.options['dest']) + '/' + taskType;
+      templateDest = this._prepareDestination(this.options['dest']) + '/' + filename;
     }
-    this.template(templateSrc, 'src/' + templateDest); // Create file
 
-
+    return templateDest;
   },
+
   // Prepare the destination string so we can control it.
   _prepareDestination: function(dest) {
     if (dest.charAt(dest.length - 1) == '/') {
