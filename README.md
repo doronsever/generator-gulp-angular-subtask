@@ -51,7 +51,7 @@ yo gulp-angular-subtask:[SUBTASK] --help
 
   * --dest : Set a destination where to save the file
   * --component : Set the destination to be under the component library
-  * --bundle : Create the task's file under a user's specific bundle instead of the file name
+  * --bundle : Create the task's file under a specific bundle instead of the file name
   * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
   * --style-type : Generate a style file based on a type {scss, sass, less, styl} [style]
   * --jade : Generate a jade partial [partial]
@@ -93,7 +93,7 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   ``` 
   
   Produces 
->src/specific/location/controllers/navbar-controller.js
+>src/app/user/controllers/user-details-directive.js
 
 * Creating a coffee script directive
   
