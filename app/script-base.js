@@ -17,7 +17,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
       desc: 'Set the destination to be under the component library'
     }); // This method adds support for a `--component` flag
     this.option('bundle', {
-      desc: 'Create the task\'s file under a user\'s specific bundle instead of the file name',
+      desc: 'Create the task\'s file under a specific bundle instead of the file name',
       type: String,
       required: 'false'
     }); // This method adds support for a `--bundle` flag
