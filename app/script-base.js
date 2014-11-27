@@ -1,7 +1,6 @@
 var generators = require('yeoman-generator'),
     angularUtils = require('./utils.js'),
-    camelCase = require('camelcase'),
-    fs = require('fs');
+    camelCase = require('camelcase');
 
 var MyBase = module.exports = generators.NamedBase.extend({
 
@@ -17,6 +16,11 @@ var MyBase = module.exports = generators.NamedBase.extend({
     this.option('component', {
       desc: 'Set the destination to be under the component library'
     }); // This method adds support for a `--component` flag
+    this.option('bundle', {
+      desc: 'Create the task\'s file under a user\'s specific bundle instead of the file name',
+      type: String,
+      required: 'false'
+    }); // This method adds support for a `--bundle` flag
   },
   // Copy the right template based on the type
   appTemplate: function(options) {
@@ -75,7 +79,8 @@ var MyBase = module.exports = generators.NamedBase.extend({
   _makeDestination: function(taskType) {
     var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
       filename = this.name + '-' + taskType,
-      templateDest = destType + '/' + this.name + '/' + taskType + 's/' + filename;
+      bundle = (typeof this.options['bundle'] !== 'undefined') ? this.options['bundle'] : this.name,
+      templateDest = destType + '/' + bundle + '/' + taskType + 's/' + filename;
 
     if (typeof this.options['dest'] !== 'undefined') {
       templateDest = this._prepareDestination(this.options['dest']) + '/' + filename;
