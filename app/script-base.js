@@ -28,7 +28,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     var fileType = (typeof this.options['coffee'] !== 'undefined') ? 'coffee' : 'js',
       templateSrc = fileType + '/' + options['type'] + '.' + fileType,
       testSrc = fileType + '/spec/' + options['type'] + '.' + fileType,
-      testDest = 'test/unit/' + options['type'] + 's/' + this.name + '-' + options['type'] + '.' + fileType,
+      testDest = 'test/unit/' + this._getTaskPluralDirectory(options['type']) + '/' + this.name + '-' + options['type'] + '.' + fileType,
       templateData = {
         scriptAppName: this.appname,
         scriptClassName: camelCase(this.name)
@@ -80,7 +80,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
       filename = this.name + '-' + taskType,
       bundle = (typeof this.options['bundle'] !== 'undefined') ? this.options['bundle'] : this.name,
-      templateDest = destType + '/' + bundle + '/' + taskType + 's/' + filename;
+      templateDest = destType + '/' + bundle + '/' + this._getTaskPluralDirectory(taskType) + '/' + filename;
 
     if (typeof this.options['dest'] !== 'undefined') {
       templateDest = this._prepareDestination(this.options['dest']) + '/' + filename;
@@ -100,5 +100,14 @@ var MyBase = module.exports = generators.NamedBase.extend({
     } // Removes 'src/' from the beginning
 
     return dest;
+  },
+  _getTaskPluralDirectory: function(taskType) {
+    switch (taskType) {
+      case 'factory':
+        return 'factories';
+      default:
+        return taskType + 's'
+
+    }
   }
 });
