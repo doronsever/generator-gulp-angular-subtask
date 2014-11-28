@@ -36,6 +36,7 @@ I currently support these sub tasks:
 
   * controller
   * directive
+  * factory
   * style (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   * partial
   
@@ -57,8 +58,11 @@ yo gulp-angular-subtask:[SUBTASK] --help
   * --jade : Generate a jade partial [partial]
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
+Also note that you can combine multiple options together.
 
 ## Examples
+
+### Controllers
 
 * To Create a controller 
 
@@ -78,22 +82,62 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/components/navbar/controllers/navbar-controller.js
 
+* Creating a coffee script controller
+  
+  ```
+  yo gulp-angular-subtask:controller user --coffee
+  ```
+  
+  Produces 
+>src/app/user/controllers/user-controller.coffee
+
+
 * Creating a controller under user specific library 
 
   ```
-  yo gulp-angular-subtask:controller user --dest="specific/location"
+  yo gulp-angular-subtask:controller user --dest=specific/location
   ``` 
   
   Produces 
+>src/specific/location/user-controller.js
   
-* Creating a user details directive under different the user bundle 
+* Creating a user details controller under the user bundle 
 
   ```
-  yo gulp-angular-subtask:directive user-details --bundle=user
+  yo gulp-angular-subtask:controller user-details --bundle=user
   ``` 
   
   Produces 
->src/app/user/controllers/user-details-directive.js
+>src/app/user/controllers/user-details-controller.js
+
+* Combining options
+
+  ```
+  yo gulp-angular-subtask:controller user-details --component --bundle=user --coffee
+  ``` 
+  
+  Produces 
+>src/component/user/controllers/user-details-controller.coffee
+
+### Directives
+
+* To Create a Directive 
+
+  ```
+  yo gulp-angular-subtask:directive user
+  ```
+  
+  Produces 
+> src/app/user/directives/user-directive.js
+
+* Creating a directive under the components library
+
+  ```
+  yo gulp-angular-subtask:directive navbar --component
+  ```
+  
+  Produces 
+>src/components/navbar/directives/navbar-directive.js
 
 * Creating a coffee script directive
   
@@ -103,6 +147,69 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   
   Produces 
 >src/app/user/directives/user-directive.coffee
+
+
+* Creating a directive under user specific library 
+
+  ```
+  yo gulp-angular-subtask:directive user --dest="specific/location"
+  ``` 
+  
+  Produces 
+>src/specific/location/user-directive.js
+
+* Creating a user-details directive under the user bundle 
+
+  ```
+  yo gulp-angular-subtask:directive user-details --bundle=user
+  ``` 
+  
+  Produces 
+>src/app/user/directives/user-details-directive.js
+
+* Combining options
+
+  ```
+  yo gulp-angular-subtask:directive user-details --component --bundle=user --coffee
+  ``` 
+  
+  Produces 
+>src/component/user/controllers/user-details-controller.coffee
+
+### Factories, Services and Provides
+
+These sub tasks works exactly like the controllers and directives sub tasks.
+Please look at their examples to understand how to use the options.
+
+* Creating a Factory 
+
+  ```
+  yo gulp-angular-subtask:factory user-details
+  ``` 
+  
+  Produces 
+>src/app/user-details/factories/user-details-factory.js
+
+* Creating a Service 
+
+  ```
+  yo gulp-angular-subtask:service user-details
+  ``` 
+  
+  Produces 
+>src/app/user-details/services/user-details-service.js
+
+* Creating a Provider 
+
+  ```
+  yo gulp-angular-subtask:provider user-details
+  ``` 
+  
+  Produces 
+>src/app/user-details/providers/user-details-provider.js
+
+
+### Styles
 
 * Creating a css file 
   
@@ -122,6 +229,8 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/app/user/styles/user.scss
 
+### Partials
+
 * Creating a partial 
   
   ```
@@ -131,7 +240,15 @@ Please note that for the time been, gulp-angular does not support coffescript. I
   Produces 
 >src/app/user/partials/user.html
 
-**This will work the same with the directive subtask also**
+* Creating a jade partial 
+  
+  ```
+  yo gulp-angular-subtask:partial user --jade
+  ```
+  
+  Produces 
+>src/app/user/partials/user.jade
+
 
 ## License
 
