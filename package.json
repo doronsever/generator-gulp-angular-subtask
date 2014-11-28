@@ -22,7 +22,8 @@
     "directive",
     "style",
     "partial",
-    "factory"
+    "factory",
+    "service"
   ],
   "keywords": [
     "yeoman-generator",
