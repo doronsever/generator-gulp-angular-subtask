@@ -38,8 +38,9 @@ var MyBase = module.exports = generators.NamedBase.extend({
       typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
 
     this.template(templateSrc, typedTemplateDest, templateData); // Create file
-    this.template(testSrc,  testDest, templateData); // Create test
-
+    if (typeof options['skipTest'] === 'undefined' || !options['skipTest']) {
+      this.template(testSrc,  testDest, templateData); // Create test
+    }
     angularUtils.rewriteFile({
       file: fullPath,
       needle: ' <!-- inject:partials -->',

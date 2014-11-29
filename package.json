@@ -23,7 +23,8 @@
     "style",
     "partial",
     "factory",
-    "service"
+    "service",
+    "value"
   ],
   "keywords": [
     "yeoman-generator",
