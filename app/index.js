@@ -24,6 +24,8 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
       chalk.green('yo gulp-angular-subtask:directive --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:factory --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:service --help') + '\n' +
+      chalk.green('yo gulp-angular-subtask:value --help') + '\n' +
+      chalk.green('yo gulp-angular-subtask:constant --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:provider --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:style --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:partial --help')

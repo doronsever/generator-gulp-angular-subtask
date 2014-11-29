@@ -7,7 +7,8 @@ module.exports = ScriptBase.extend({
       desc: 'Generate CoffeeScript instead of JavaScript'
     }); // This method adds support for a `--coffee` flag
     this.option('service-value', {
-      desc: 'Set value for the value / constant service'
+      desc: 'Set value for the value / constant service',
+      defaults: 42
     }); // This method adds support for a `--service-value` flag
   },
 

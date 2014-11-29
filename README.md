@@ -37,6 +37,9 @@ I currently support these sub tasks:
   * controller
   * directive
   * factory
+  * service
+  * value
+  * constant
   * style (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   * partial
   
@@ -54,6 +57,7 @@ yo gulp-angular-subtask:[SUBTASK] --help
   * --component : Set the destination to be under the component library
   * --bundle : Create the task's file under a specific bundle instead of the file name
   * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
+  * --service-value: Set value for the value / constant service
   * --style-type : Generate a style file based on a type {scss, sass, less, styl} [style]
   * --jade : Generate a jade partial [partial]
   
@@ -208,6 +212,25 @@ Please look at their examples to understand how to use the options.
   Produces 
 >src/app/user-details/providers/user-details-provider.js
 
+### Values, Constants
+
+* Creating a Value 
+
+  ```
+  yo gulp-angular-subtask:value user-id --bundle=user
+  ``` 
+  
+  Produces 
+>src/app/user/values/user-id-value.js
+
+* Creating a Constant with value from the cmd
+
+  ```
+  yo gulp-angular-subtask:constant user-id --bundle=user --service-value=4343434
+  ``` 
+  
+  Produces 
+>src/app/user/constants/user-id-constant.js with value of 4343434
 
 ### Styles
 
