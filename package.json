@@ -24,7 +24,8 @@
     "partial",
     "factory",
     "service",
-    "value"
+    "value",
+    "constant"
   ],
   "keywords": [
     "yeoman-generator",

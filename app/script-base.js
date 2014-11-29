@@ -31,7 +31,8 @@ var MyBase = module.exports = generators.NamedBase.extend({
       testDest = 'test/unit/' + this._getTaskPluralDirectory(options['type']) + '/' + this.name + '-' + options['type'] + '.' + fileType,
       templateData = {
         scriptAppName: this.appname,
-        scriptClassName: camelCase(this.name)
+        scriptClassName: camelCase(this.name),
+        serviceValue : (typeof this.options['service-value'] !== 'undefined') ? this.options['service-value'] : ''
       },
       fullPath = 'src/index.html',
       templateDest = this._makeDestination(options['type']), // Create the destination path

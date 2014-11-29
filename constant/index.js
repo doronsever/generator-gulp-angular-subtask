@@ -12,6 +12,6 @@ module.exports = ScriptBase.extend({
   },
 
   exec: function () {
-    this.appTemplate({type: 'value', skipTest: true});
+    this.appTemplate({type: 'constant', skipTest: true});
   }
 });
