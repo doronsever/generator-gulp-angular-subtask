@@ -1,4 +1,4 @@
-describe('Factory: <%= scriptClassName %>', function() {
+describe('Provider: <%= scriptClassName %>', function() {
   var <%= scriptClassName %>;
   beforeEach(module('<%= scriptAppName %>'));
   beforeEach(inject(function(_<%= scriptClassName %>_) {

@@ -1,4 +1,4 @@
-describe 'Factory: <%= scriptClassName %>', ->
+describe 'Service: <%= scriptClassName %>', ->
   <%= scriptClassName %> = {}
   beforeEach module('<%= scriptAppName %>')
   beforeEach inject((_<%= scriptClassName %>_) ->
