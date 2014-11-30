@@ -183,7 +183,7 @@ Also note that you can combine multiple options together.
 ### Factories, Services and Provides
 
 These sub tasks works exactly like the controllers and directives sub tasks.
-Please look at their examples to understand how to use the options.
+Please take a look at their examples to understand how to use their options.
 
 * Creating a Factory 
 
