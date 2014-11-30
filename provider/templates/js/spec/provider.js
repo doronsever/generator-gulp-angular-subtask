@@ -5,7 +5,7 @@ describe('Factory: <%= scriptClassName %>', function() {
     <%= scriptClassName %> = _<%= scriptClassName %>_;
   }));
 
-  it('should attach a list of awesomeThings to the service', function() {
+  it('should say hello', function() {
     expect(<%= scriptClassName %>.greet()).toEqual('Hello');
   });
 

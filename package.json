@@ -1,6 +1,6 @@
 {
   "name": "generator-gulp-angular-subtask",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A helper generator for gulp-angular to create sub tasks like controllers and directives",
   "license": "MIT",
   "main": "app/index.js",

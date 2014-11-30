@@ -5,7 +5,7 @@ describe 'Factory: <%= scriptClassName %>', ->
     <%= scriptClassName %> = _<%= scriptClassName %>_
   ));
 
-  it 'should attach a list of awesomeThings to the service', ->
+  it 'should say hello', ->
     expect(<%= scriptClassName %>.greet()).toEqual('Hello')
 
 
