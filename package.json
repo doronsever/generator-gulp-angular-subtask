@@ -25,7 +25,8 @@
     "factory",
     "service",
     "value",
-    "constant"
+    "constant",
+    "provider"
   ],
   "keywords": [
     "yeoman-generator",
