@@ -36,6 +36,7 @@ I currently support these sub tasks:
 
   * controller
   * directive
+  * provider
   * factory
   * service
   * value
