@@ -34,7 +34,7 @@ This project will be deprecated when the team decide to support this issue.
 
 I currently support these sub tasks: 
 
-  * controller
+  * [controller](https://github.com/doronsever/generator-gulp-angular-subtask#controllers)
   * directive
   * provider
   * factory
