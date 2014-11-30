@@ -35,14 +35,14 @@ This project will be deprecated when the team decide to support this issue.
 I currently support these sub tasks: 
 
   * [controller](https://github.com/doronsever/generator-gulp-angular-subtask#controllers)
-  * directive
-  * provider
-  * factory
-  * service
-  * value
-  * constant
-  * style (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
-  * partial
+  * [directive](https://github.com/doronsever/generator-gulp-angular-subtask#directives)
+  * [provider](https://github.com/doronsever/generator-gulp-angular-subtask#factories-services-and-provides)
+  * [factory](https://github.com/doronsever/generator-gulp-angular-subtask#factories-services-and-provides)
+  * [service](https://github.com/doronsever/generator-gulp-angular-subtask#factories-services-and-provides)
+  * [value](https://github.com/doronsever/generator-gulp-angular-subtask#values-constants)
+  * [constant](https://github.com/doronsever/generator-gulp-angular-subtask#values-constants)
+  * [style](https://github.com/doronsever/generator-gulp-angular-subtask#styles) (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
+  * [partial](https://github.com/doronsever/generator-gulp-angular-subtask#partials)
   
 ### options
 
