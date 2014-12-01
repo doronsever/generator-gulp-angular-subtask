@@ -41,6 +41,7 @@ I currently support these sub tasks:
   * [service](https://github.com/doronsever/generator-gulp-angular-subtask#factories-services-and-provides)
   * [value](https://github.com/doronsever/generator-gulp-angular-subtask#values-constants)
   * [constant](https://github.com/doronsever/generator-gulp-angular-subtask#values-constants)
+  * [filter](https://github.com/doronsever/generator-gulp-angular-subtask#filters)
   * [style](https://github.com/doronsever/generator-gulp-angular-subtask#styles) (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   * [partial](https://github.com/doronsever/generator-gulp-angular-subtask#partials)
   
