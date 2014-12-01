@@ -236,7 +236,7 @@ Please take a look at their examples to understand how to use their options.
 
 ### Filters
 
-These sub tasks works exactly like the controllers and directives sub tasks.
+These sub task works exactly like the controllers and directives sub tasks.
 Please take a look at their examples to understand how to use their options.
 
 * Creating a filter
