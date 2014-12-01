@@ -1,6 +1,7 @@
 var generators = require('yeoman-generator'),
     angularUtils = require('./utils.js'),
-    camelCase = require('camelcase');
+    camelCase = require('camelcase'),
+    chalk = require('chalk');
 
 var MyBase = module.exports = generators.NamedBase.extend({
 
@@ -25,6 +26,11 @@ var MyBase = module.exports = generators.NamedBase.extend({
   // Copy the right template based on the type
   appTemplate: function(options) {
 
+    // Validate options
+    var valid = this._checkOptions();
+    if (!valid) {
+      return false;
+    }
     var fileType = (typeof this.options['coffee'] !== 'undefined') ? 'coffee' : 'js',
       templateSrc = fileType + '/' + options['type'] + '.' + fileType,
       testSrc = fileType + '/spec/' + options['type'] + '.' + fileType,
@@ -52,6 +58,12 @@ var MyBase = module.exports = generators.NamedBase.extend({
   },
   // Add styles
   _addStyles: function() {
+
+    // Validate options
+    var valid = this._checkOptions();
+    if (!valid) {
+      return false;
+    }
     var fileType = this.options['style-type'],
       templateSrc = 'style.' + fileType,
       fullPath = 'src/index.html',
@@ -89,6 +101,24 @@ var MyBase = module.exports = generators.NamedBase.extend({
     }
 
     return templateDest;
+  },
+  // Validate options
+  _checkOptions: function() {
+    var valid = true;
+    if (typeof this.options['bundle'] !== 'undefined') {
+      if (typeof this.options['bundle'] === 'boolean') {
+        this.log(chalk.red('Bundle cannot be empty!'));
+        valid = false;
+      }
+    }
+    if (typeof this.options['dest'] !== 'undefined') {
+      if (typeof this.options['dest'] === 'boolean') {
+        this.log(chalk.red('Destination cannot be empty!'));
+        valid = false;
+      }
+    }
+
+    return valid;
   },
   // Prepare the destination string so we can control it.
   _prepareDestination: function(dest) {
