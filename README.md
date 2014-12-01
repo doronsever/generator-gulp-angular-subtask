@@ -234,6 +234,20 @@ Please take a look at their examples to understand how to use their options.
   Produces 
 >src/app/user/constants/user-id-constant.js with value of 4343434
 
+### Filters
+
+These sub tasks works exactly like the controllers and directives sub tasks.
+Please take a look at their examples to understand how to use their options.
+
+* Creating a filter
+
+  ```
+  yo gulp-angular-subtask:filter myFilter
+  ``` 
+  
+  Produces 
+>src/app/user/filters/myFilter-filter.js
+
 ### Styles
 
 * Creating a css file 
