@@ -92,7 +92,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
   // Create the file path to copy the template to and to insert in the index.html file
   _makeDestination: function(taskType) {
     var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
-      filename = this.name + '-' + taskType,
+      filename = this._getFilename(taskType),
       bundle = (typeof this.options['bundle'] !== 'undefined') ? this.options['bundle'] : this.name,
       templateDest = destType + '/' + bundle + '/' + this._getTaskPluralDirectory(taskType) + '/' + filename;
 
@@ -101,6 +101,16 @@ var MyBase = module.exports = generators.NamedBase.extend({
     }
 
     return templateDest;
+  },
+  // Do not include task type to partial and styles
+  _getFilename: function(taskType) {
+    switch (taskType) {
+      case 'partial':
+      case 'style':
+        return this.name;
+      default:
+        return this.name + '-' + taskType;
+    }
   },
   // Validate options
   _checkOptions: function() {
