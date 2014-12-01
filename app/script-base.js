@@ -151,5 +151,10 @@ var MyBase = module.exports = generators.NamedBase.extend({
         return taskType + 's'
 
     }
+  },
+  _addMoreOptions: function() {
+    this.option('coffee', {
+      desc: 'Generate CoffeeScript instead of JavaScript'
+    }); // This method adds support for a `--coffee` flag
   }
 });
