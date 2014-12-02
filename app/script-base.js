@@ -83,6 +83,12 @@ var MyBase = module.exports = generators.NamedBase.extend({
   },
   // Adds partials
   _addPartials: function() {
+
+    var valid = this._checkOptions();
+    if (!valid) {
+      return false;
+    }
+
     var fileType = this._getFileType('html'),
       templateDest = this._makeDestination('partial'), // Create the destination path
       templateSrc = 'partial.' + fileType,
@@ -103,6 +109,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     return templateDest;
   },
+  // Get file type from settings or from options
   _getFileType: function(type) {
 
     if (type == 'language') { // coffee or js
@@ -115,6 +122,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
       return this._getFileTypeCheck(type, 'html', 'html-type');
     }
   },
+  //Checks the file type
   _getFileTypeCheck: function(type, defaultType, optionType) {
     var config = this.config.get('props');
     var fileType = defaultType;
@@ -148,6 +156,31 @@ var MyBase = module.exports = generators.NamedBase.extend({
     if (typeof this.options['dest'] !== 'undefined') {
       if (typeof this.options['dest'] === 'boolean') {
         this.log(chalk.red('Destination cannot be empty!'));
+        valid = false;
+      }
+    }
+
+    if (typeof this.options['script-type'] !== 'undefined') {
+      if (typeof this.options['script-type'] === 'boolean') {
+        this.log(chalk.red('Script type cannot be empty!'));
+        valid = false;
+      }
+      else if (this.options['script-type'] != 'js' && this.options['script-type'] != 'coffee') {
+        this.log(chalk.red('Script type can be "js" or "coffee" only!'));
+        valid = false;
+      }
+    }
+
+    if (typeof this.options['style-type'] !== 'undefined') {
+      if (typeof this.options['style-type'] === 'boolean') {
+        this.log(chalk.red('Style type cannot be empty! Please choose from {css, scss, sass, less, styl} options'));
+        valid = false;
+      }
+    }
+
+    if (typeof this.options['html-type'] !== 'undefined') {
+      if (typeof this.options['html-type'] === 'boolean') {
+        this.log(chalk.red('HTML type cannot be empty! Please choose from {html, jade} options'));
         valid = false;
       }
     }
