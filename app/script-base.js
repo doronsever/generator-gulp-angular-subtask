@@ -31,7 +31,8 @@ var MyBase = module.exports = generators.NamedBase.extend({
     if (!valid) {
       return false;
     }
-    var fileType = (typeof this.options['coffee'] !== 'undefined') ? 'coffee' : 'js',
+
+    var fileType = this._getFileType('language'),
       templateSrc = fileType + '/' + options['type'] + '.' + fileType,
       testSrc = fileType + '/spec/' + options['type'] + '.' + fileType,
       testDest = 'test/unit/' + this._getTaskPluralDirectory(options['type']) + '/' + this.name + '-' + options['type'] + '.' + fileType,
@@ -64,7 +65,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     if (!valid) {
       return false;
     }
-    var fileType = this.options['style-type'],
+    var fileType = this._getFileType('style'),
       templateSrc = 'style.' + fileType,
       fullPath = 'src/index.html',
       templateDest = this._makeDestination('style'), // Create the destination path
@@ -82,7 +83,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
   },
   // Adds partials
   _addPartials: function() {
-    var fileType = (typeof this.options['jade'] !== 'undefined') ? 'jade' : 'html',
+    var fileType = this._getFileType('html'),
       templateDest = this._makeDestination('partial'), // Create the destination path
       templateSrc = 'partial.' + fileType,
       typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
@@ -101,6 +102,29 @@ var MyBase = module.exports = generators.NamedBase.extend({
     }
 
     return templateDest;
+  },
+  _getFileType: function(type) {
+
+    if (type == 'language') { // coffee or js
+      return this._getFileTypeCheck(type, 'js', 'script-type');
+    }
+    else if (type == 'style') {
+      return this._getFileTypeCheck(type, 'css', 'style-type');
+    }
+    else {
+      return this._getFileTypeCheck(type, 'html', 'html-type');
+    }
+  },
+  _getFileTypeCheck: function(type, defaultType, optionType) {
+    var config = this.config.get('props');
+    var fileType = defaultType;
+    if (typeof this.options[optionType] !== 'undefined') {
+      fileType = this.options[optionType];
+    }
+    else {
+      fileType = config[type];
+    }
+    return fileType;
   },
   // Do not include task type to partial and styles
   _getFilename: function(taskType) {
@@ -153,8 +177,9 @@ var MyBase = module.exports = generators.NamedBase.extend({
     }
   },
   _addMoreOptions: function() {
-    this.option('coffee', {
-      desc: 'Generate CoffeeScript instead of JavaScript'
+    this.option('script-type', {
+      desc: 'Choose script language type for file [js, coffee]',
+      type: String
     }); // This method adds support for a `--coffee` flag
   }
 });

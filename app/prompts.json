@@ -1,0 +1,59 @@
+[
+  {
+    "type": "list",
+    "name": "language",
+    "message": "Would you like to generate coffee script or regular javascript?",
+    "choices": [
+      {
+        "value": "js",
+        "name": "Javascript"
+      },
+      {
+        "value": "coffee",
+        "name": "CoffeeScript"
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "name": "style",
+    "message": "Default style type?",
+    "choices": [
+      {
+        "value": "css",
+        "name": "CSS"
+      },
+      {
+        "value": "scss",
+        "name": "SCSS"
+      },
+      {
+        "value": "sass",
+        "name": "SASS"
+      },
+      {
+        "value": "less",
+        "name": "LESS"
+      },
+      {
+        "value": "styl",
+        "name": "Stylus"
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "name": "html",
+    "message": "Default HTML type?",
+    "choices": [
+      {
+        "value": "html",
+        "name": "HTML"
+      },
+      {
+        "value": "jade",
+        "name": "Jade"
+      }
+    ]
+  }
+]

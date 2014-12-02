@@ -4,6 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var prompts = require('./prompts.json');
 
 var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -31,6 +32,17 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
       chalk.green('yo gulp-angular-subtask:style --help') + '\n' +
       chalk.green('yo gulp-angular-subtask:partial --help')
     );
+
+    this.prompt(prompts, function (props) {
+      this.props = props;
+      console.log(props);
+      done();
+    }.bind(this));
+  },
+  saveSettings: function() {
+
+    this.config.set('props', this.props);
+    this.config.forceSave();
   }
 });
 
