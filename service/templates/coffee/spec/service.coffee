@@ -1,8 +1,8 @@
-describe 'Service: <%= scriptClassName %>', ->
+describe 'Service: <%= scriptClassName %>Service', ->
   <%= scriptClassName %> = {}
   beforeEach module('<%= scriptAppName %>')
-  beforeEach inject((_<%= scriptClassName %>_) ->
-    <%= scriptClassName %> = _<%= scriptClassName %>_
+  beforeEach inject((_<%= scriptClassName %>Service_) ->
+    <%= scriptClassName %> = _<%= scriptClassName %>Service_
   )
 
   it 'should attach a list of awesomeThings to the service', ->

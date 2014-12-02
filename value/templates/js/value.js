@@ -7,4 +7,4 @@
  * Value in the <%= scriptAppName %>.
  */
 angular.module('<%= scriptAppName %>')
-  .value('<%= scriptClassName %>', <%= serviceValue %>);
+  .value('<%= scriptClassName %>Value', <%= serviceValue %>);

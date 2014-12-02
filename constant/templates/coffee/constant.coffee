@@ -8,4 +8,4 @@
 # Constant in the <%= scriptAppName %>.
 ###
 angular.module('<%= scriptAppName %>')
-  .constant '<%= scriptClassName %>', <%= serviceValue %>
+  .constant '<%= scriptClassName %>Const', <%= serviceValue %>

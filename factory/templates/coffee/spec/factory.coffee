@@ -1,10 +1,10 @@
-describe 'Factory: <%= scriptClassName %>', ->
+describe 'Factory: <%= scriptClassName %>Factory', ->
   beforeEach module('<%= scriptAppName %>')
 
   <%= scriptClassName %> = {}
 
-  beforeEach inject((_<%= scriptClassName %>_) ->
-    <%= scriptClassName %> = _<%= scriptClassName %>_
+  beforeEach inject((_<%= scriptClassName %>Factory_) ->
+    <%= scriptClassName %> = _<%= scriptClassName %>Factory_
   )
 
   it 'should provide the meaning of life', ->

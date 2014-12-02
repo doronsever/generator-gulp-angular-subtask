@@ -7,7 +7,7 @@
  * Factory in the <%= scriptAppName %>.
  */
 angular.module('<%= scriptAppName %>')
-  .factory('<%= scriptClassName %>', function () {
+  .factory('<%= scriptClassName %>Factory', function () {
 // Service logic
 // ...
     var meaningOfLife = 42;

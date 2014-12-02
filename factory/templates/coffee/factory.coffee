@@ -8,7 +8,7 @@
 # Factory in the <%= scriptAppName %>.
 ###
 angular.module('<%= scriptAppName %>')
-  .factory '<%= scriptClassName %>', ->
+  .factory '<%= scriptClassName %>Factory', ->
     # Service logic
     # ...
     meaningOfLife = 42
