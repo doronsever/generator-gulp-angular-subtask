@@ -7,14 +7,17 @@
 
 ### Installation
 
-
+1. Create a project using [generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular)
+2. After you have a working project, download the generator-gulp-angular-subtask <br />
 ```
 npm install -g generator-gulp-angular-subtask
 ```
+3. Run `yo generator-gulp-angular-subtask` and set your defaults
+4. Create subtasks following the [examples](https://github.com/doronsever/generator-gulp-angular-subtask#examples) below
 
 ### To enable style generation support
 
-add `<!-- endstyles -->` in your index.html file after this line: `<link rel="stylesheet" href="app/index.css">`
+Add `<!-- endstyles -->` in your index.html file after this line: `<link rel="stylesheet" href="app/index.css">`
 
 The result should look like this:
 >     <!-- build:css({.tmp,src}) styles/app.css -->
@@ -47,26 +50,31 @@ I currently support these sub tasks:
   
 ### options
 
-To see the options you can always use the help option on a task
+To see the options available you can always use the help option on a task
 
 ```
 yo gulp-angular-subtask:[SUBTASK] --help
 ```
+
+Note that script-type, style-type and html-type will override your default option for the current command, meaning it is not permanently.
 
 **These are the options available**
 
   * --dest : Set a destination where to save the file
   * --component : Set the destination to be under the component library
   * --bundle : Create the task's file under a specific bundle instead of the file name
-  * --coffee : Generate coffeescript template instead of regular javascript [controller, directives]
-  * --service-value: Set value for the value / constant service
+  * --script-type : Generate Coffee or JavaScript template file 
+  * --service-value: Set value for the value / constant service [value, constant]
   * --style-type : Generate a style file based on a type {scss, sass, less, styl} [style]
-  * --jade : Generate a jade partial [partial]
+  * --html-type : Generate html or jade partial [partial]
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
 Also note that you can combine multiple options together.
 
 ## Examples
+
+Default:
+ { language: 'js', style: 'css', html: 'html' }
 
 ### Controllers
 
@@ -91,7 +99,7 @@ Also note that you can combine multiple options together.
 * Creating a coffee script controller
   
   ```
-  yo gulp-angular-subtask:controller user --coffee
+  yo gulp-angular-subtask:controller user --script-type=coffee
   ```
   
   Produces 
@@ -119,7 +127,7 @@ Also note that you can combine multiple options together.
 * Combining options
 
   ```
-  yo gulp-angular-subtask:controller user-details --component --bundle=user --coffee
+  yo gulp-angular-subtask:controller user-details --component --bundle=user --script-type=coffee
   ``` 
   
   Produces 
@@ -148,7 +156,7 @@ Also note that you can combine multiple options together.
 * Creating a coffee script directive
   
   ```
-  yo gulp-angular-subtask:directive user --coffee
+  yo gulp-angular-subtask:directive user --script-type=coffee
   ```
   
   Produces 
@@ -176,7 +184,7 @@ Also note that you can combine multiple options together.
 * Combining options
 
   ```
-  yo gulp-angular-subtask:directive user-details --component --bundle=user --coffee
+  yo gulp-angular-subtask:directive user-details --component --bundle=user --script-type=coffee
   ``` 
   
   Produces 
@@ -282,7 +290,7 @@ Please take a look at their examples to understand how to use their options.
 * Creating a jade partial 
   
   ```
-  yo gulp-angular-subtask:partial user --jade
+  yo gulp-angular-subtask:partial user --html-type=jade
   ```
   
   Produces 
