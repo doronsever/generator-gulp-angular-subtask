@@ -35,7 +35,6 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      console.log(props);
       done();
     }.bind(this));
   },
@@ -43,6 +42,7 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
 
     this.config.set('props', this.props);
     this.config.forceSave();
+    this.log(chalk.green('Settings were saved!'));
   }
 });
 
