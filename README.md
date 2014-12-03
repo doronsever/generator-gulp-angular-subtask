@@ -48,7 +48,7 @@ I currently support these sub tasks:
   * [style](https://github.com/doronsever/generator-gulp-angular-subtask#styles) (supports css, less, scss, sass, stylus. Only create the files, NOT implementing compass. see installation section)
   * [partial](https://github.com/doronsever/generator-gulp-angular-subtask#partials)
   
-### options
+### Options
 
 To see the options available you can always use the help option on a task
 
