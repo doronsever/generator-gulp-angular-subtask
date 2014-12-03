@@ -8,7 +8,7 @@
 ### Installation
 
 1. Create a project using [generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular)
-2. After you have a working project, download the generator-gulp-angular-subtask <br />
+2. After you have a working project, install the generator-gulp-angular-subtask <br />
 ```
 npm install -g generator-gulp-angular-subtask
 ```
