@@ -9,6 +9,6 @@
 # Filter in the <%= scriptAppName %>.
 ###
 angular.module('<%= scriptAppName %>')
-  .filter '<%= scriptClassName %>', ->
-    (input) ->
-      '<%= scriptClassName %> filter: ' + input
+.filter '<%= scriptClassName %>', ->
+  (input) ->
+    '<%= scriptClassName %> filter: ' + input
