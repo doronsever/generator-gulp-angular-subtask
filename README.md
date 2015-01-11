@@ -12,7 +12,7 @@
 ```
 npm install -g generator-gulp-angular-subtask
 ```
-3. Run `yo generator-gulp-angular-subtask` and set your defaults
+3. Run `yo gulp-angular-subtask` and set your defaults
 4. Create subtasks following the [examples](https://github.com/doronsever/generator-gulp-angular-subtask#examples) below
 
 ### To enable style generation support
