@@ -25,7 +25,22 @@ Edit `[MAIN DIR]/gulp/styles.js`
 
 Change the return array from this:
 
+
+    return gulp.src([
+       paths.src + '/app/index.scss',
+       paths.src + '/app/vendor.scss',
+    ])
  
+   
+To this:
+
+    return gulp.src([
+        paths.src + '/app/index.scss',
+        paths.src + '/app/vendor.scss',
+        paths.src + '/{app,components}/**/*.scss'
+    ])
+ 
+Otherwise css won't be injected to `.tmp`
 
 ### Why should i use it?
 
