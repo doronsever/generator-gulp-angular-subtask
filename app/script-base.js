@@ -34,8 +34,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     var fileType = this._getFileType('language'),
       templateSrc = fileType + '/' + options['type'] + '.' + fileType,
-      testSrc = fileType + '/spec/' + options['type'] + '.' + fileType,
-      testDest = 'test/unit/' + this._getTaskPluralDirectory(options['type']) + '/' + this.name + '-' + options['type'] + '.' + fileType,
+      testSrc = /*fileType +*/ 'js/spec/' + options['type'] + '.js',
       templateData = {
         scriptAppName: this.appname,
         scriptClassName: camelCase(this.name),
@@ -43,19 +42,13 @@ var MyBase = module.exports = generators.NamedBase.extend({
       },
       fullPath = 'src/index.html',
       templateDest = this._makeDestination(options['type']), // Create the destination path
+      testDest = 'src/' + this._makeDestination(options['type'], true) + '.spec.js', // + fileType,
       typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
 
     this.template(templateSrc, typedTemplateDest, templateData); // Create file
     if (typeof options['skipTest'] === 'undefined' || !options['skipTest']) {
       this.template(testSrc,  testDest, templateData); // Create test
     }
-    angularUtils.rewriteFile({
-      file: fullPath,
-      needle: ' <!-- inject:partials -->',
-      splicable: [
-        '<script src="' + templateDest + '.js"></script>'
-      ]
-    });
   },
   // Add styles
   _addStyles: function() {
@@ -73,13 +66,6 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     this.template(templateSrc, typedTemplateDest); // Create file
 
-    angularUtils.rewriteFile({
-      file: fullPath,
-      needle: ' <!-- endstyles -->',
-      splicable: [
-        '<link rel="stylesheet" href="' + templateDest + '.css">'
-      ]
-    });
   },
   // Adds partials
   _addPartials: function() {
@@ -97,11 +83,15 @@ var MyBase = module.exports = generators.NamedBase.extend({
     this.template(templateSrc, typedTemplateDest); // Create file
    },
   // Create the file path to copy the template to and to insert in the index.html file
-  _makeDestination: function(taskType) {
+  _makeDestination: function(taskType, testFile) {
+    testFile = testFile || false;
     var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
       filename = this._getFilename(taskType),
       bundle = (typeof this.options['bundle'] !== 'undefined') ? this.options['bundle'] : this.name,
       templateDest = destType + '/' + bundle + '/' + this._getTaskPluralDirectory(taskType) + '/' + filename;
+    if (testFile) { // Put spec file in the module under spec directory
+      templateDest = destType + '/' + bundle + '/spec/' + this._getTaskPluralDirectory(taskType) + '/' + filename;
+    }
 
     if (typeof this.options['dest'] !== 'undefined') {
       templateDest = this._prepareDestination(this.options['dest']) + '/' + filename;

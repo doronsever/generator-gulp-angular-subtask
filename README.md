@@ -21,13 +21,10 @@ npm install -g generator-gulp-angular-subtask
 
 ### To enable style generation support
 
-Add `<!-- endstyles -->` in your index.html file after this line: `<link rel="stylesheet" href="app/index.css">`
+Edit `[MAIN DIR]/gulp/styles.js`
 
-The result should look like this:
->     <!-- build:css({.tmp,src}) styles/app.css -->
-    <link rel="stylesheet" href="app/index.css">
-    <!-- endstyles -->
-    <!-- endbuild -->
+Change the return array from this:
+
  
 
 ### Why should i use it?
