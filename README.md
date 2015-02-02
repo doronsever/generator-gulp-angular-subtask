@@ -2,6 +2,10 @@
 
 > A helper generator for [gulp-angular](https://github.com/Swiip/generator-gulp-angular) generator
 
+**IMPORTANT NOTE: This subtask generator version was updated to fit generator-gulp-angular >= V0.9**
+
+**If you are using previous versions, please use  generator-gulp-angular@0.7.1**
+
 
 ## Getting Started
 
