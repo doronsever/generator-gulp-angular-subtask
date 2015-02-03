@@ -22,6 +22,12 @@ var MyBase = module.exports = generators.NamedBase.extend({
       type: String,
       required: 'false'
     }); // This method adds support for a `--bundle` flag
+    this.option('skip-test', {
+      desc: 'Create the task\'s file without a spec file',
+      type: Boolean,
+      defaults: false,
+      required: 'false'
+    }); // This method adds support for a `--bundle` flag
   },
   // Copy the right template based on the type
   appTemplate: function(options) {
@@ -46,7 +52,8 @@ var MyBase = module.exports = generators.NamedBase.extend({
       typedTemplateDest = 'src/' + templateDest + '.' + fileType; // Add to the destination path the file type
 
     this.template(templateSrc, typedTemplateDest, templateData); // Create file
-    if (typeof options['skipTest'] === 'undefined' || !options['skipTest']) {
+    //console.log(this.options['skip-test']);
+    if ((typeof options['skipTest'] === 'undefined' || !options['skipTest']) && !this.options['skip-test']) {
       this.template(testSrc,  testDest, templateData); // Create test
     }
   },

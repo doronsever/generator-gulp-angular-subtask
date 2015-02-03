@@ -83,6 +83,7 @@ Note that script-type, style-type and html-type will override your default optio
   * --service-value: Set value for the value / constant service [value, constant]
   * --style-type : Generate a style file based on a type {scss, sass, less, styl} [style]
   * --html-type : Generate html or jade partial [partial]
+  * --skip-test : Generate a task without it spec file
   
 Please note that for the time been, gulp-angular does not support coffescript. I'm using my IDEA's file watcher to generate a corresponding js file.  
 Also note that you can combine multiple options together.
