@@ -2,9 +2,9 @@
 
 > A helper generator for [gulp-angular](https://github.com/Swiip/generator-gulp-angular) generator
 
-**IMPORTANT NOTE: This subtask generator version was updated to fit generator-gulp-angular >= V0.9**
+**IMPORTANT NOTE: This subtask generator version was updated to fit generator-gulp-angular >= V0.11.* **
 
-**If you are using previous versions, please use  generator-gulp-angular@0.7.1**
+**If you are using previous versions please check at [previous releases](https://github.com/doronsever/generator-gulp-angular-subtask/releases)**
 
 
 ## Getting Started
@@ -19,28 +19,6 @@ npm install -g generator-gulp-angular-subtask
 3. Run `yo gulp-angular-subtask` and set your defaults
 4. Create subtasks following the [examples](https://github.com/doronsever/generator-gulp-angular-subtask#examples) below
 
-### To enable style generation support
-
-Edit `[MAIN DIR]/gulp/styles.js`
-
-Change the return array from this:
-
-
-    return gulp.src([
-       paths.src + '/app/index.scss',
-       paths.src + '/app/vendor.scss',
-    ])
- 
-   
-To this:
-
-    return gulp.src([
-        paths.src + '/app/index.scss',
-        paths.src + '/app/vendor.scss',
-        paths.src + '/{app,components}/**/*.scss'
-    ])
- 
-Otherwise css won't be injected to `.tmp`
 
 ### Why should i use it?
 
@@ -111,7 +89,7 @@ Default:
   ```
   
   Produces 
->src/components/navbar/controllers/navbar-controller.js
+>src/app/components/navbar/controllers/navbar-controller.js
 
 * Creating a coffee script controller
   
@@ -148,7 +126,7 @@ Default:
   ``` 
   
   Produces 
->src/component/user/controllers/user-details-controller.coffee
+>src/app/component/user/controllers/user-details-controller.coffee
 
 ### Directives
 
@@ -168,7 +146,7 @@ Default:
   ```
   
   Produces 
->src/components/navbar/directives/navbar-directive.js
+>src/app/components/navbar/directives/navbar-directive.js
 
 * Creating a coffee script directive
   
@@ -205,7 +183,7 @@ Default:
   ``` 
   
   Produces 
->src/component/user/controllers/user-details-controller.coffee
+>src/app/component/user/controllers/user-details-controller.coffee
 
 ### Factories, Services and Provides
 
