@@ -1,6 +1,6 @@
 {
   "name": "generator-gulp-angular-subtask",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A helper generator for gulp-angular to create sub tasks like controllers and directives",
   "license": "MIT",
   "main": "app/index.js",
@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "camelcase": "^1.0.2",
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "yeoman-generator": "^0.18.7",
     "yosay": "^1.0.2"
   },

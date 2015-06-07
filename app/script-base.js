@@ -92,7 +92,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
   // Create the file path to copy the template to and to insert in the index.html file
   _makeDestination: function(taskType, testFile) {
     testFile = testFile || false;
-    var destType = (typeof this.options['component'] !== 'undefined') ? 'components' : 'app',
+    var destType = (typeof this.options['component'] !== 'undefined') ? 'app/components' : 'app',
       filename = this._getFilename(taskType),
       bundle = (typeof this.options['bundle'] !== 'undefined') ? this.options['bundle'] : this.name,
       templateDest = destType + '/' + bundle + '/' + this._getTaskPluralDirectory(taskType) + '/' + filename;
